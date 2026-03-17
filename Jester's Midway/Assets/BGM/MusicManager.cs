@@ -10,8 +10,8 @@ public class MusicManager : MonoBehaviour
         if(musicObjects.Length > 1)
         {
             Destroy(this.gameObject);
+            return;
         }
 
-        DontDestroyOnLoad(this.gameObject);
     }
 }

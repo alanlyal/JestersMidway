@@ -35,6 +35,7 @@ public class PlayerSFX : MonoBehaviour
         else
         {
             stepTimer = 0f; // Reset timer when not moving
+            audioSource.Stop(); // Stop any playing footstep sound when the player stops moving
         }
     }
 
@@ -43,6 +44,8 @@ public class PlayerSFX : MonoBehaviour
         if (footstepClips.Length == 0) return;
 
         AudioClip clip = footstepClips[Random.Range(0, footstepClips.Length)];
-        audioSource.PlayOneShot(clip);
+        audioSource.clip = clip;
+        audioSource.volume = 1f;
+        audioSource.Play();
     }
 }

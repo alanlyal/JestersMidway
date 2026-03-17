@@ -1933,7 +1933,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f97a43faabae99f43bbc75b11b6d69e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonSFX
-  audioSource: {fileID: 1336915962}
+  audioSource: {fileID: 0}
   clickSound: {fileID: 8300000, guid: 4b022fc2a4ed3c74b899481fa41c967d, type: 3}
 --- !u!82 &625555312
 AudioSource:
