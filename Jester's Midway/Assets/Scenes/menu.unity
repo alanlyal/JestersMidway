@@ -3516,7 +3516,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1592355807001933260, guid: 4b7ade26857b6b647bf1e4ab56d5bb56, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2094742379}
   m_SourcePrefab: {fileID: 100100000, guid: 4b7ade26857b6b647bf1e4ab56d5bb56, type: 3}
 --- !u!1001 &1235235532
 PrefabInstance:
@@ -5145,6 +5148,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2084188465}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2094742371 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1592355807001933260, guid: 4b7ade26857b6b647bf1e4ab56d5bb56, type: 3}
+  m_PrefabInstance: {fileID: 1235082719}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2094742379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094742371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f751c612c0190e4786ad5ca812c3167, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AIPathFinding
+  roamRadius: 10
+  waitTime: 2
 --- !u!1 &2127960054
 GameObject:
   m_ObjectHideFlags: 0
