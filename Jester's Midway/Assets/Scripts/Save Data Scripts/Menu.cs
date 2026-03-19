@@ -3,19 +3,24 @@ using UnityEngine.UI;
 
 public class Menu : PersistentSingleton<Menu>
 {
-    [SerializeField] private Button saveBtn;
     [SerializeField] private Button loadBtn;
 
     private void Start()
     {
-        saveBtn.onClick.AddListener(() =>
+        if (loadBtn == null)
         {
-            SaveLoadSystem.instance.gameData.fileName = "Menu";
-            SaveLoadSystem.instance.gameData.sceneName = "level";
-            SaveLoadSystem.instance.SaveGame();
-        });
+            Debug.LogError("Load button not assigned in Menu!");
+            return;
+        }
+
         loadBtn.onClick.AddListener(() =>
         {
+            if (SaveLoadSystem.instance == null)
+            {
+                Debug.LogError("SaveLoadSystem instance is missing!");
+                return;
+            }
+
             SaveLoadSystem.instance.LoadGame("Menu");
         });
     }
