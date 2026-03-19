@@ -11,6 +11,8 @@ public class PauseGame : MonoBehaviour
         {
             pauseCanvas.SetActive(!pauseCanvas.activeSelf);
             Time.timeScale = pauseCanvas.activeSelf ? 0f : 1f;
+            Cursor.lockState = pauseCanvas.activeSelf ? CursorLockMode.None : CursorLockMode.Locked;
+            Cursor.visible = pauseCanvas.activeSelf;
         }
     }
 }

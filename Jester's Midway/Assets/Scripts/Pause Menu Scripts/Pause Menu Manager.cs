@@ -10,6 +10,8 @@ public class PauseMenu : MonoBehaviour
     {
         Main.SetActive(false);
         Time.timeScale = 1.0f;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
     public void QuitGame()
     {
