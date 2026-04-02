@@ -1,16 +1,19 @@
 using UnityEngine;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class Target : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void Hit()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (TargetGameManager.Instance == null || TargetGameManager.Instance.IsGameOver())
+            return;
+        TargetGameManager.Instance.TargetHit();
+        if (TargetBounds.Instance != null)
+        {
+            transform.position = TargetBounds.Instance.getRandomPosition();
+        }
+        else
+        {
+            Debug.LogError("TargetBounds is missing in the scene!");
+        }
     }
 }
