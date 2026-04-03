@@ -1490,7 +1490,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1613174875475300, guid: f77f88b14a477764bb65a49d28c02d33, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1350104318}
   m_SourcePrefab: {fileID: 100100000, guid: f77f88b14a477764bb65a49d28c02d33, type: 3}
 --- !u!1001 &428919743
 PrefabInstance:
@@ -2654,6 +2657,11 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 6192786234916192152, guid: 7b7cfc346430b96468b82ea1d3c813d8, type: 3}
   m_PrefabInstance: {fileID: 1934564296825442788}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &773558823 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6616524716632571949, guid: 7b7cfc346430b96468b82ea1d3c813d8, type: 3}
+  m_PrefabInstance: {fileID: 1934564296825442788}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &791246474
 GameObject:
   m_ObjectHideFlags: 0
@@ -2898,6 +2906,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 817593517}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &822836400 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1613174875475300, guid: f77f88b14a477764bb65a49d28c02d33, type: 3}
+  m_PrefabInstance: {fileID: 1177022323}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &822836404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822836400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a37ed43d27279984d9180e1856f2878e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JoystickHandler
+  player: {fileID: 1382130747}
+  isLookStick: 1
+  range: 50
 --- !u!4 &843061298 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 83bdb934176b67a48855f9f2adeaf9c9, type: 3}
@@ -4279,7 +4307,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1613174875475300, guid: f77f88b14a477764bb65a49d28c02d33, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 822836404}
   m_SourcePrefab: {fileID: 100100000, guid: f77f88b14a477764bb65a49d28c02d33, type: 3}
 --- !u!1001 &1223946678
 PrefabInstance:
@@ -5046,6 +5077,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PauseGame
   pauseCanvas: {fileID: 738051489}
+--- !u!1 &1350104314 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1613174875475300, guid: f77f88b14a477764bb65a49d28c02d33, type: 3}
+  m_PrefabInstance: {fileID: 423280722}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1350104318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1350104314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a37ed43d27279984d9180e1856f2878e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JoystickHandler
+  player: {fileID: 1382130747}
+  isLookStick: 0
+  range: 50
 --- !u!1 &1354462114
 GameObject:
   m_ObjectHideFlags: 0
@@ -5194,6 +5245,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TargetShooter
   cam: {fileID: 773558822}
+--- !u!114 &1382130747 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2104280974924946491, guid: 7b7cfc346430b96468b82ea1d3c813d8, type: 3}
+  m_PrefabInstance: {fileID: 1934564296825442788}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1382130733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9c4094ac726c42448030b6d1c226547, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
 --- !u!1 &1384195643
 GameObject:
   m_ObjectHideFlags: 0
@@ -8531,6 +8593,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shoot
       objectReference: {fileID: 0}
+    - target: {fileID: 114204224268582166, guid: 05f32eddd3e41fd4597ada617b785928, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1382130742}
+    - target: {fileID: 114204224268582166, guid: 05f32eddd3e41fd4597ada617b785928, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Shoot
+      objectReference: {fileID: 0}
+    - target: {fileID: 114204224268582166, guid: 05f32eddd3e41fd4597ada617b785928, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: TargetShooter, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 114204224268582166, guid: 05f32eddd3e41fd4597ada617b785928, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 114344768413473294, guid: 05f32eddd3e41fd4597ada617b785928, type: 3}
       propertyPath: m_ControlPath
       value: <Mouse>/leftButton
@@ -9935,6 +10013,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 2104280974924946491, guid: 7b7cfc346430b96468b82ea1d3c813d8, type: 3}
+      propertyPath: mobileUI
+      value: 
+      objectReference: {fileID: 1315637389}
+    - target: {fileID: 2104280974924946491, guid: 7b7cfc346430b96468b82ea1d3c813d8, type: 3}
+      propertyPath: cameraTransform
+      value: 
+      objectReference: {fileID: 773558823}
     - target: {fileID: 2546944315761037449, guid: 7b7cfc346430b96468b82ea1d3c813d8, type: 3}
       propertyPath: fillImage
       value: 
