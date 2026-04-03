@@ -7,21 +7,15 @@ public class Menu : PersistentSingleton<Menu>
 
     private void Start()
     {
-        if (loadBtn == null)
-        {
-            Debug.LogError("Load button not assigned in Menu!");
-            return;
-        }
+        if (loadBtn == null) return;
 
         loadBtn.onClick.AddListener(() =>
         {
-            if (SaveLoadSystem.instance == null)
+            // CRITICAL: Use 'Instance' (Capital I) 
+            if (SaveLoadSystem.Instance != null)
             {
-                Debug.LogError("SaveLoadSystem instance is missing!");
-                return;
+                SaveLoadSystem.Instance.LoadGame("Menu");
             }
-
-            SaveLoadSystem.instance.LoadGame("Menu");
         });
     }
 }

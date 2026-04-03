@@ -1,35 +1,43 @@
-using System.Collections.Generic;
-using UnityEngine.SceneManagement;
+using UnityEngine;
 
 public class SaveLoadSystem : PersistentSingleton<SaveLoadSystem>
 {
-    public GameData gameData;
-    IDataService dataService;
+    private IDataService fileDataService;
+    public GameData currentData;
 
     protected override void Awake()
     {
-        base.Awake();
-        dataService = new FileDataService(new JsonSerializer());
+        base.Awake(); 
+        Debug.Log("SAVE PATH: " + Application.persistentDataPath);
+        
+        fileDataService = new FileDataService(new JsonSerializer());
     }
-    public void SaveGame()
-    {
-        dataService.Save(gameData);
-    }
+
     public void LoadGame(string gameName)
     {
-        gameData = dataService.Load(gameName);
-        if (string.IsNullOrWhiteSpace(gameData.fileName))
+    
+        GameData data = fileDataService.Load(gameName);
+
+        if (data == null)
         {
-            gameData.sceneName = "level";
+          
+            currentData = new GameData();
+            currentData.fileName = gameName;
+            Debug.Log("No save found. Created new GameData.");
         }
-        SceneManager.LoadScene(gameData.sceneName);
+        else
+        {
+            currentData = data;
+            Debug.Log("Game Loaded: " + gameName);
+        }
     }
-    public void DeleteGame(string gameName)
+
+    public void SaveGame()
     {
-        dataService.Delete(gameName);
-    }
-    public IEnumerable<string> ListAllSaves()
-    {
-        return dataService.ListSaves();
+        if (currentData != null)
+        {
+            fileDataService.Save(currentData);
+            Debug.Log("Game Saved!");
+        }
     }
 }

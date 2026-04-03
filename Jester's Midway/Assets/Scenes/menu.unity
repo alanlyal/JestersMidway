@@ -551,7 +551,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e033bfda74177124eb954ad8d64e5479, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Menu
-  saveBtn: {fileID: 0}
   loadBtn: {fileID: 435013812}
 --- !u!114 &89596121
 MonoBehaviour:
@@ -1878,7 +1877,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 96979736}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: OpenSettings
+        m_MethodName: LoadGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
