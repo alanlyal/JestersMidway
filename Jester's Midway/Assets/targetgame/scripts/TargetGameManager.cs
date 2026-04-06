@@ -9,6 +9,7 @@ public class TargetGameManager : MonoBehaviour
 
     int targetsHit = 0;
     bool gameOver = false;
+    bool gameStarted = false;
 
     void Awake()
     {
@@ -17,7 +18,8 @@ public class TargetGameManager : MonoBehaviour
 
     void Update()
     {
-        if (gameOver) return;
+     
+        if (!gameStarted || gameOver) return;
 
         timeLeft -= Time.deltaTime;
 
@@ -30,6 +32,13 @@ public class TargetGameManager : MonoBehaviour
     public void TargetHit()
     {
         if (gameOver) return;
+
+      
+        if (!gameStarted)
+        {
+            gameStarted = true;
+            Debug.Log("First target hit! Game Started!");
+        }
 
         targetsHit++;
 
@@ -48,5 +57,11 @@ public class TargetGameManager : MonoBehaviour
     public bool IsGameOver()
     {
         return gameOver;
+    }
+
+    
+    public bool HasGameStarted()
+    {
+        return gameStarted;
     }
 }
