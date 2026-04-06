@@ -3,7 +3,7 @@ using UnityEngine;
 public class TargetFactory : MonoBehaviour
 {
     [SerializeField] private GameObject targetPrefab; 
-    [SerializeField] private int initialPoolSize = 5;
+    [SerializeField] private int initialPoolSize = 1;
     void Start()
     {
         for (int i = 0; i < initialPoolSize; i++)
