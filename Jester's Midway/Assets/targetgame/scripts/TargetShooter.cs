@@ -19,12 +19,11 @@ public class TargetShooter : MonoBehaviour
     {
         if (!canShoot) return;
 
-        // PLATFORM SWITCH FOR INPUT
+        
 #if UNITY_ANDROID || UNITY_IOS
-        // On Mobile, we don't check for MouseButtonDown here 
-        // because the UI Button handles the click via the Inspector!
+       
 #else
-            // On PC/Editor, we check for the Mouse Click
+            
             if (Input.GetMouseButtonDown(0))
             {
                 Shoot();

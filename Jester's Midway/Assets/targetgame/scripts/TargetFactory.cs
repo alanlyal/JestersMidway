@@ -1,23 +1,19 @@
 using UnityEngine;
 
-public class TargetFactory : MonoBehaviour
+public abstract class TargetFactory : MonoBehaviour
 {
-    [SerializeField] private GameObject targetPrefab; 
-    [SerializeField] private int initialPoolSize = 1;
+    [SerializeField] protected GameObject targetPrefab;
+
     void Start()
     {
-        for (int i = 0; i < initialPoolSize; i++)
+        for (int i = 0; i < GetInitialCount(); i++)
         {
             CreateTarget();
         }
     }
-    public Target CreateTarget()
+    public abstract Target CreateTarget();
+    protected virtual int GetInitialCount()
     {
-        Vector3 spawnPos = TargetBounds.Instance.getRandomPosition();
-        GameObject newTargetObj = Instantiate(targetPrefab, spawnPos, Quaternion.identity);
-        Target targetScript = newTargetObj.GetComponent<Target>();
-        float randomScale = Random.Range(0.5f, 1.5f);
-        newTargetObj.transform.localScale = Vector3.one * randomScale;
-        return targetScript;
+        return 3;
     }
 }

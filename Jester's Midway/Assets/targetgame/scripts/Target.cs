@@ -13,7 +13,7 @@ public class Target : MonoBehaviour
         }
         else
         {
-            Debug.LogError("TargetBounds is missing in the scene!");
+            Debug.LogError("TargetBounds is missing in the scene");
         }
     }
 }
