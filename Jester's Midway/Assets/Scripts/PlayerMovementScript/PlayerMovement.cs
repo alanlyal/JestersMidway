@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Platform Settings")]
-    public GameObject mobileUI; // Drag your UI Canvas/Panel here
+    public GameObject mobileUI; 
 
     [Header("Movement")]
     public float moveSpeed = 6f;
@@ -17,14 +17,14 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Mouse Look")]
     public Transform cameraTransform;
-    public float mouseSensitivity = 100f; // Lowered default slightly
+    public float mouseSensitivity = 100f;
     private float xRotation = 0f;
 
     private Rigidbody rb;
     private float x, z;
     private bool isGrounded;
 
-    // These will be set by your Joysticks
+   
     [HideInInspector] public Vector2 moveJoystickInput;
     [HideInInspector] public Vector2 lookJoystickInput;
     [HideInInspector] public bool mobileJumpPressed;
@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
         rb.freezeRotation = true;
 
         // Toggle UI based on platform
-#if UNITY_ANDROID || UNITY_IOS
+#if UNITY_ANDROID
         if (mobileUI != null) mobileUI.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
 #else
@@ -48,28 +48,21 @@ public class PlayerMovement : MonoBehaviour
     {
         HandleInput();
         HandleRotation();
-
-        // Ground check
         isGrounded = Physics.CheckSphere(groundCheck.position, groundCheckRadius, groundMask);
-
-        // Jump logic (Combined PC + Mobile)
         if ((Input.GetKeyDown(KeyCode.Space) || mobileJumpPressed) && isGrounded)
         {
             Vector3 v = rb.linearVelocity;
             v.y = 0f;
             rb.linearVelocity = v;
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            mobileJumpPressed = false; // Reset mobile flag
+            mobileJumpPressed = false; 
         }
     }
 
     void HandleInput()
     {
-        // PC Input
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
-
-        // Use whichever input is active (PC or Mobile Joystick)
         x = h != 0 ? h : moveJoystickInput.x;
         z = v != 0 ? v : moveJoystickInput.y;
     }
@@ -78,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
     {
         float mouseX, mouseY;
 
-#if UNITY_ANDROID || UNITY_IOS
+#if UNITY_ANDROID 
         mouseX = lookJoystickInput.x * mouseSensitivity * Time.deltaTime;
         mouseY = lookJoystickInput.y * mouseSensitivity * Time.deltaTime;
 #else
@@ -105,7 +98,5 @@ public class PlayerMovement : MonoBehaviour
 
         rb.linearVelocity = Vector3.Lerp(velocity, targetVel, control);
     }
-
-    // Public methods for UI Buttons to call
     public void MobileJump() { mobileJumpPressed = true; }
 }
