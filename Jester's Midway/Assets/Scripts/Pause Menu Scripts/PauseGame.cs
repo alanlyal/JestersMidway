@@ -9,10 +9,15 @@ public class PauseGame : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            pauseCanvas.SetActive(!pauseCanvas.activeSelf);
-            Time.timeScale = pauseCanvas.activeSelf ? 0f : 1f;
-            Cursor.lockState = pauseCanvas.activeSelf ? CursorLockMode.None : CursorLockMode.Locked;
-            Cursor.visible = pauseCanvas.activeSelf;
+            Pause();
         }
+    }
+
+    public void Pause()
+    {
+        pauseCanvas.SetActive(!pauseCanvas.activeSelf);
+        Time.timeScale = pauseCanvas.activeSelf ? 0f : 1f;
+        Cursor.lockState = pauseCanvas.activeSelf ? CursorLockMode.None : CursorLockMode.Locked;
+        Cursor.visible = pauseCanvas.activeSelf;
     }
 }

@@ -1,0 +1,2 @@
+C:\Users\doria\Documents\Game Dev Term 2\Web Game Development\Assignment Part 2\JestersMidway\Jester's Midway\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\CMakeLists.txt
+C:\Users\doria\Documents\Game Dev Term 2\Web Game Development\Assignment Part 2\JestersMidway\Jester's Midway\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\CMakeLists.txt

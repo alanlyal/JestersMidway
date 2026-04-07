@@ -6,6 +6,7 @@ public class JoystickHandler : MonoBehaviour, IDragHandler, IEndDragHandler
     public PlayerMovement player;
     public bool isLookStick = false; // Check this for the Right Stick
     public float range = 50f;
+    public float sensitivity = 1f;
 
     private Vector2 inputVector;
     private RectTransform stickTransform;
@@ -32,9 +33,9 @@ public class JoystickHandler : MonoBehaviour, IDragHandler, IEndDragHandler
 
             // Send data to PlayerMovement
             if (isLookStick)
-                player.lookJoystickInput = inputVector;
+                player.lookJoystickInput = inputVector * sensitivity;
             else
-                player.moveJoystickInput = inputVector;
+                player.moveJoystickInput = inputVector * sensitivity;
         }
     }
 
