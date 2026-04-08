@@ -6,11 +6,9 @@ public class JoystickHandler : MonoBehaviour, IDragHandler, IEndDragHandler
     public PlayerMovement player;
     public bool isLookStick = false; 
     public float range = 50f;
-<<<<<<< HEAD
     public float sensitivity = 1f;
 
-=======
->>>>>>> 1d0d5342be01540c560d61f82a74b4e023c074bd
+
     private Vector2 inputVector;
     private RectTransform stickTransform;
 
