@@ -9,7 +9,7 @@ public class PlayerHealth : MonoBehaviour
     public float maxHealth = 100f;
     private float currentHealth;
     public Image fillImage;
-
+   [SerializeField] private VoidEventChannel playerDeathChannel;
     private Color greenColor = new Color(0.18f, 0.8f, 0.18f);
     private Color yellowColor = new Color(18f, 0.85f, 0f);
     private Color redColor = new Color(0.85f, 0.1f, 0.1f);
@@ -48,6 +48,8 @@ public class PlayerHealth : MonoBehaviour
     void Die()
     {
         Debug.Log("Player has died.");
+        if (playerDeathChannel != null)
+            playerDeathChannel.RaiseEvent();
         SceneManager.LoadScene("game over");
         Time.timeScale = 0f; // Pause the game
     }

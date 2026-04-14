@@ -1,40 +1,32 @@
+using System;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
     public float maxHealth = 100f;
     private float currentHealth;
-
+    public Action OnDeath;
+    private bool isDead = false;
     void Start()
     {
         currentHealth = maxHealth;
     }
-
-    [System.Obsolete]
     public void TakeDamage(float damage)
     {
+        if (isDead) return;
         currentHealth -= damage;
-
         Debug.Log("Enemy HP: " + currentHealth);
-
         if (currentHealth <= 0f)
         {
             Die();
         }
     }
-
-    [System.Obsolete]
     void Die()
     {
+        if (isDead) return;
+        isDead = true;
         Debug.Log("Enemy died");
-
-        // Tell GameManager you won (optional for now)
-        GameManager gm = FindObjectOfType<GameManager>();
-        if (gm != null)
-        {
-            gm.EndMatch();
-        }
-
+        OnDeath?.Invoke();
         Destroy(gameObject);
     }
 }

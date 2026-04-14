@@ -745,6 +745,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dec3ec4f697259a479fd08083c3a6b18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TargetGameManager
+  targetCompleteChannel: {fileID: 0}
   timeLeft: 20
   targetsToWin: 5
 --- !u!4 &272858096 stripped
@@ -2776,6 +2777,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 748221960}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &757284770
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 757284771}
+  m_Layer: 0
+  m_Name: ExitPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &757284771
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 757284770}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.8347, y: 0.419, z: -48.029}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &764630446 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224771122883764374, guid: 05f32eddd3e41fd4597ada617b785928, type: 3}
@@ -7205,6 +7237,8 @@ MonoBehaviour:
   playerSpawn: {fileID: 27515434}
   enemyPrefab: {fileID: 5864778989670180193, guid: 39a2a2a48d1709a459015bed0da34c9c, type: 3}
   enemySpawn: {fileID: 133237935}
+  exitPoint: {fileID: 757284771}
+  duelWinChannel: {fileID: 11400000, guid: 0821f8e541740fb4888cd44565087279, type: 2}
 --- !u!4 &1664753374
 Transform:
   m_ObjectHideFlags: 0
@@ -10149,6 +10183,10 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 931203174}
+    - target: {fileID: 2546944315761037449, guid: 7b7cfc346430b96468b82ea1d3c813d8, type: 3}
+      propertyPath: playerDeathChannel
+      value: 
+      objectReference: {fileID: 11400000, guid: 0821f8e541740fb4888cd44565087279, type: 2}
     - target: {fileID: 4294183252545750604, guid: 7b7cfc346430b96468b82ea1d3c813d8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.17
@@ -10245,3 +10283,4 @@ SceneRoots:
   - {fileID: 133237935}
   - {fileID: 808676586}
   - {fileID: 1023211511}
+  - {fileID: 757284771}

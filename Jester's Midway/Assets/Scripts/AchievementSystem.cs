@@ -1,38 +1,66 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class AchievementSystem : MonoBehaviour
 {
-    [SerializeField] private VoidEventChannel voidChannel;
-    [SerializeField] private GameDataEventChannel gameDataChannel;
-
-    private int achievementJumps = 10;
-    private int currentJumps = 0;
-
+    [Header("Event Channels")]
+    [SerializeField] private VoidEventChannel duelWinChannel;
+    [SerializeField] private VoidEventChannel playerDeathChannel;
+    [SerializeField] private VoidEventChannel targetCompleteChannel;
+    [SerializeField] private GameDataEventChannel gameCompleteChannel;
+    private bool duelUnlocked;
+    private bool deathUnlocked;
+    private bool targetUnlocked;
+    private bool gameUnlocked;
     private void OnEnable()
     {
-        voidChannel.OnEventRaised += EventCalled;
-        gameDataChannel.OnEventRaised += GameDataEventCalled;
+        if (duelWinChannel != null)
+            duelWinChannel.OnEventRaised += OnDuelWin;
+        if (playerDeathChannel != null)
+            playerDeathChannel.OnEventRaised += OnPlayerDeath;
+        if (targetCompleteChannel != null)
+            targetCompleteChannel.OnEventRaised += OnTargetComplete;
+        if (gameCompleteChannel != null)
+            gameCompleteChannel.OnEventRaised += OnGameComplete;
     }
 
     private void OnDisable()
     {
-        voidChannel.OnEventRaised -= EventCalled;
-        gameDataChannel.OnEventRaised -= GameDataEventCalled;
+        if (duelWinChannel != null)
+            duelWinChannel.OnEventRaised -= OnDuelWin;
+        if (playerDeathChannel != null)
+            playerDeathChannel.OnEventRaised -= OnPlayerDeath;
+        if (targetCompleteChannel != null)
+            targetCompleteChannel.OnEventRaised -= OnTargetComplete;
+        if (gameCompleteChannel != null)
+            gameCompleteChannel.OnEventRaised -= OnGameComplete;
+    }
+    private void OnDuelWin()
+    {
+        if (duelUnlocked) return;
+        duelUnlocked = true;
+        Unlock("Warden");
+    }
+    private void OnPlayerDeath()
+    {
+        if (deathUnlocked) return;
+        deathUnlocked = true;
+        Unlock("how did this happen");
+    }
+    private void OnTargetComplete()
+    {
+        if (targetUnlocked) return;
+        targetUnlocked = true;
+        Unlock("Sharpshooter");
+    }
+    private void OnGameComplete(GameData data)
+    {
+        if (gameUnlocked) return;
+        gameUnlocked = true;
+        Unlock(" Game Complete Thanks for playing out game");
     }
 
-    private void EventCalled()
+    private void Unlock(string achievementName)
     {
-        Debug.Log("Event Called by listening to the Event Channel of Void type");
-        currentJumps++;
-        if(currentJumps >= achievementJumps)
-        {
-            Debug.Log("Achievement Unlocked: Jumped 10 times!");
-            currentJumps = 0; // Reset the counter for the next achievement
-        }
-    }
-
-    private void GameDataEventCalled(GameData data)
-    {
-        Debug.Log($"Event Called by listening to the Event Channel of GameData type with value: {data.fileName}");
+        Debug.Log("Achievement: " + achievementName);
     }
 }

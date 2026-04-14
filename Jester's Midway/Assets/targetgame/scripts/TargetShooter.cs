@@ -21,7 +21,7 @@ public class TargetShooter : MonoBehaviour
         if (!canShoot) return;
 
 
-#if UNITY_ANDROID || UNITY_IOS
+#if UNITY_ANDROID
        
 #else
 
