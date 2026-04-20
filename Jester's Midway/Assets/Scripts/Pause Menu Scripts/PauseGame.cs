@@ -1,13 +1,13 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PauseGame : MonoBehaviour
 {
     public GameObject pauseCanvas;
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame)
         {
             Pause();
         }
@@ -15,9 +15,18 @@ public class PauseGame : MonoBehaviour
 
     public void Pause()
     {
-        pauseCanvas.SetActive(!pauseCanvas.activeSelf);
-        Time.timeScale = pauseCanvas.activeSelf ? 0f : 1f;
-        Cursor.lockState = pauseCanvas.activeSelf ? CursorLockMode.None : CursorLockMode.Locked;
-        Cursor.visible = pauseCanvas.activeSelf;
+        if (pauseCanvas == null) return;
+        bool isPaused = !pauseCanvas.activeSelf;
+        pauseCanvas.SetActive(isPaused);
+        Time.timeScale = isPaused ? 0f : 1f;
+        Cursor.lockState = isPaused ? CursorLockMode.None : CursorLockMode.Locked;
+        Cursor.visible = isPaused;
+    }
+    public void ResumeGame()
+    {
+        pauseCanvas.SetActive(false);
+        Time.timeScale = 1f;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 }

@@ -2,6 +2,7 @@ using Unity.VectorGraphics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.InputSystem; // Added for the New Input System
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -9,12 +10,11 @@ public class PlayerHealth : MonoBehaviour
     public float maxHealth = 100f;
     private float currentHealth;
     public Image fillImage;
-   [SerializeField] private VoidEventChannel playerDeathChannel;
+    [SerializeField] private VoidEventChannel playerDeathChannel;
     private Color greenColor = new Color(0.18f, 0.8f, 0.18f);
-    private Color yellowColor = new Color(18f, 0.85f, 0f);
+    private Color yellowColor = new Color(1f, 0.85f, 0f); 
     private Color redColor = new Color(0.85f, 0.1f, 0.1f);
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         currentHealth = maxHealth;
@@ -22,7 +22,6 @@ public class PlayerHealth : MonoBehaviour
         UpdateHealthColor();
     }
 
-    // Update is called once per frame
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
@@ -50,21 +49,27 @@ public class PlayerHealth : MonoBehaviour
         Debug.Log("Player has died.");
         if (playerDeathChannel != null)
             playerDeathChannel.RaiseEvent();
+
         SceneManager.LoadScene("game over");
         Time.timeScale = 0f; // Pause the game
     }
 
     private void Update()
     {
-        // For testing purposes, press the space key to take damage
-        if (Input.GetKeyDown(KeyCode.Z))
+       
+        if (Keyboard.current != null)
         {
-            TakeDamage(10f);
-        }
+            // Press Z to take damage
+            if (Keyboard.current.zKey.wasPressedThisFrame)
+            {
+                TakeDamage(10f);
+            }
 
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            Heal(10f);
+            // Press X to heal
+            if (Keyboard.current.xKey.wasPressedThisFrame)
+            {
+                Heal(10f);
+            }
         }
     }
 

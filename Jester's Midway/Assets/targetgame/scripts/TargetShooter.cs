@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class TargetShooter : MonoBehaviour
 {
@@ -15,24 +16,18 @@ public class TargetShooter : MonoBehaviour
         canShoot = true;
     }
 
-    [System.Obsolete]
     void Update()
     {
         if (!canShoot) return;
 
-
-#if UNITY_ANDROID
-       
-#else
-
-        if (Input.GetMouseButtonDown(0))
+#if !UNITY_ANDROID
+        if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
         {
             Shoot();
         }
 #endif
     }
 
-    [System.Obsolete]
     public void Shoot()
     {
         if (!canShoot) return;
@@ -41,7 +36,6 @@ public class TargetShooter : MonoBehaviour
 
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
-            // ?? TARGET GAME
             Target target = hit.collider.GetComponent<Target>();
             if (target != null)
             {
@@ -49,11 +43,10 @@ public class TargetShooter : MonoBehaviour
                 return;
             }
 
-            // ?? ARENA ENEMY
             EnemyHealth enemy = hit.collider.GetComponent<EnemyHealth>();
             if (enemy != null)
             {
-                enemy.TakeDamage(20f); // adjust damage
+                enemy.TakeDamage(20f);
                 return;
             }
         }

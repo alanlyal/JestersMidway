@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerSFX : MonoBehaviour
 {
@@ -7,13 +8,14 @@ public class PlayerSFX : MonoBehaviour
 
     private AudioSource audioSource;
     private float stepTimer;
+    private Rigidbody rb; 
 
     void Awake()
     {
         audioSource = GetComponent<AudioSource>();
+        rb = GetComponent<Rigidbody>(); 
     }
 
-    // Update is called once per frame
     void Update()
     {
         HandleFootsteps();
@@ -21,8 +23,15 @@ public class PlayerSFX : MonoBehaviour
 
     void HandleFootsteps()
     {
-        bool isMoving = Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0;
-
+        bool isMoving = false;
+        if (rb != null && rb.linearVelocity.magnitude > 0.1f)
+        {
+            isMoving = true;
+        }
+        if (!isMoving && Keyboard.current != null)
+        {
+            isMoving = Keyboard.current.wKey.isPressed || Keyboard.current.aKey.isPressed || Keyboard.current.sKey.isPressed || Keyboard.current.dKey.isPressed;
+        }
         if (isMoving)
         {
             stepTimer -= Time.deltaTime;
@@ -34,18 +43,13 @@ public class PlayerSFX : MonoBehaviour
         }
         else
         {
-            stepTimer = 0f; // Reset timer when not moving
-            audioSource.Stop(); // Stop any playing footstep sound when the player stops moving
+            stepTimer = 0f;
         }
     }
 
     void PlayFootstep()
     {
-        if (footstepClips.Length == 0) return;
-
-        AudioClip clip = footstepClips[Random.Range(0, footstepClips.Length)];
-        audioSource.clip = clip;
-        audioSource.volume = 1f;
-        audioSource.Play();
+        if (footstepClips.Length == 0 || audioSource == null) return;
+        audioSource.PlayOneShot(footstepClips[Random.Range(0, footstepClips.Length)]);
     }
 }

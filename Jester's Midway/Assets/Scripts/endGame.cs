@@ -18,6 +18,8 @@ public class endGame : MonoBehaviour
                 gameCompleteChannel.RaiseEvent(data);
             }
             SceneManager.LoadScene("game over");
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
 }
