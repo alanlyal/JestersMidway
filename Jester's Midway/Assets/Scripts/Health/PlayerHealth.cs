@@ -2,7 +2,7 @@ using Unity.VectorGraphics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using UnityEngine.InputSystem; // Added for the New Input System
+using UnityEngine.InputSystem; 
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -51,7 +51,7 @@ public class PlayerHealth : MonoBehaviour
             playerDeathChannel.RaiseEvent();
 
         SceneManager.LoadScene("game over");
-        Time.timeScale = 0f; // Pause the game
+        Time.timeScale = 0f; 
     }
 
     private void Update()
@@ -59,13 +59,13 @@ public class PlayerHealth : MonoBehaviour
        
         if (Keyboard.current != null)
         {
-            // Press Z to take damage
+           
             if (Keyboard.current.zKey.wasPressedThisFrame)
             {
                 TakeDamage(10f);
             }
 
-            // Press X to heal
+           
             if (Keyboard.current.xKey.wasPressedThisFrame)
             {
                 Heal(10f);
