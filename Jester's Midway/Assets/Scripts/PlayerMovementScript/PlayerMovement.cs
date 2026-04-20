@@ -55,19 +55,22 @@ public class PlayerMovement : MonoBehaviour
             mobileJumpPressed = false;
         }
     }
-    void HandleInput()
-    {
-        float h = 0, v = 0;
-        if (Keyboard.current != null)
+      void HandleInput()
         {
-            if (Keyboard.current.wKey.isPressed) v = 1;
-            if (Keyboard.current.sKey.isPressed) v = -1;
-            if (Keyboard.current.aKey.isPressed) h = -1;
-            if (Keyboard.current.dKey.isPressed) h = 1;
-        }
-        x = h != 0 ? h : moveJoystickInput.x;
-        z = v != 0 ? v : moveJoystickInput.y;
+            float h = 0, v = 0;
+#if !UNITY_ANDROID
+    if (Keyboard.current != null)
+    {
+        if (Keyboard.current.wKey.isPressed) v = 1;
+        if (Keyboard.current.sKey.isPressed) v = -1;
+        if (Keyboard.current.aKey.isPressed) h = -1;
+        if (Keyboard.current.dKey.isPressed) h = 1;
     }
+#endif
+            x = (h != 0) ? h : moveJoystickInput.x;
+            z = (v != 0) ? v : moveJoystickInput.y;
+        }
+    
     void HandleRotation()
     {
         float mouseX = 0, mouseY = 0;
