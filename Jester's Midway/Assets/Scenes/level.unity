@@ -389,11 +389,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 224771122883764374, guid: 05f32eddd3e41fd4597ada617b785928, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -1866
+      value: -926
       objectReference: {fileID: 0}
     - target: {fileID: 224771122883764374, guid: 05f32eddd3e41fd4597ada617b785928, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 477
+      value: 363
       objectReference: {fileID: 0}
     - target: {fileID: 224771122883764374, guid: 05f32eddd3e41fd4597ada617b785928, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5420,8 +5420,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee3d011c284c19544be4b89a0d56dee2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PauseMenu
-  Settings: {fileID: 623136704}
-  Main: {fileID: 738051489}
+  pauseCanvas: {fileID: 738051489}
+  settingsPanel: {fileID: 623136704}
 --- !u!4 &1326357055
 Transform:
   m_ObjectHideFlags: 0
