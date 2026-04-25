@@ -1,54 +1,84 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 
 public class PauseMenu : MonoBehaviour
 {
-    public GameObject pauseCanvas; 
+    public GameObject pauseCanvas;
     public GameObject settingsPanel;
+
+    private bool isPaused = false;
+    void Awake()
+    {
+        Time.timeScale = 1f;
+
+        if (pauseCanvas != null) pauseCanvas.SetActive(false);
+        if (settingsPanel != null) settingsPanel.SetActive(false);
+
+#if UNITY_ANDROID
+        Cursor.visible = true;
+#else
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+#endif
+    }
     void Update()
     {
+#if !UNITY_ANDROID
         if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame)
         {
-            if (pauseCanvas.activeSelf)
-            {
+            if (isPaused)
                 ResumeGame();
-            }
             else
-            {
                 OpenPauseMenu();
-            }
         }
+#endif
     }
     public void OpenPauseMenu()
     {
-        pauseCanvas.SetActive(true);
-        settingsPanel.SetActive(false);
+        isPaused = true;
+        if (pauseCanvas != null)
+            pauseCanvas.SetActive(true);
+        if (settingsPanel != null)
+            settingsPanel.SetActive(false);
         Time.timeScale = 0f;
+
+#if !UNITY_ANDROID
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+#endif
     }
     public void ResumeGame()
     {
-        pauseCanvas.SetActive(false);
-        settingsPanel.SetActive(false);
-        Time.timeScale = 1.0f;
+        isPaused = false;
+        if (pauseCanvas != null)
+            pauseCanvas.SetActive(false);
+        if (settingsPanel != null)
+            settingsPanel.SetActive(false);
+        Time.timeScale = 1f;
+
+#if !UNITY_ANDROID
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+#endif
     }
     public void QuitGame()
     {
-        Time.timeScale = 1.0f; 
+        Time.timeScale = 1f;
         SceneManager.LoadScene("menu");
     }
     public void OpenSettings()
     {
-        settingsPanel.SetActive(true);
-        pauseCanvas.SetActive(false);
+        if (settingsPanel != null)
+            settingsPanel.SetActive(true);
+        if (pauseCanvas != null)
+            pauseCanvas.SetActive(false);
     }
     public void CloseSettings()
     {
-        settingsPanel.SetActive(false);
-        pauseCanvas.SetActive(true);
+        if (settingsPanel != null)
+            settingsPanel.SetActive(false);
+        if (pauseCanvas != null)
+            pauseCanvas.SetActive(true);
     }
 }

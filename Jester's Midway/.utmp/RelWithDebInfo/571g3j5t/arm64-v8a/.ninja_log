@@ -1,28 +1,19 @@
 # ninja log v5
-2906	3081	7968870401946056	C:/Users/alexh/Desktop/WebGameProgrammingProject/Jester's Midway/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/571g3j5t/obj/arm64-v8a/libgame.so	c309e6000f21c8b2
-32	2237	7968870393382625	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	8d4632252a8b783b
-41	2248	7968870393367458	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	7f69df3e91a3d842
-50	2641	7968870397391966	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	48261d5de12e9447
-8	2332	7968870394377307	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	5eba860f9414dc4f
-16	2416	7968870395261994	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	40263dbabc4f87d5
-57	2343	7968870394495085	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	126ff8d9870d0c5e
-24	2709	7968870398132936	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	cf58362c23d7e970
-0	2905	7968870400066527	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	f00d92f9862ff498
-40	964	7968879676870470	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	7f69df3e91a3d842
-25	975	7968879677017439	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	8d4632252a8b783b
-47	989	7968879677108018	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	126ff8d9870d0c5e
-19	991	7968879677118139	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	5eba860f9414dc4f
-13	1056	7968879677809427	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	40263dbabc4f87d5
-55	1148	7968879678767827	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	48261d5de12e9447
-32	1192	7968879679198252	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	cf58362c23d7e970
-5	1284	7968879680090346	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	f00d92f9862ff498
-1284	1408	7968879681365388	C:/Users/alexh/Desktop/WebGameProgrammingProject/Jester's Midway/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/571g3j5t/obj/arm64-v8a/libgame.so	c309e6000f21c8b2
-47	953	7968887282552177	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	7f69df3e91a3d842
 26	959	7968887282632488	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	8d4632252a8b783b
+1283	1413	7968887287214208	C:/Users/alexh/Desktop/WebGameProgrammingProject/Jester's Midway/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/571g3j5t/obj/arm64-v8a/libgame.so	c309e6000f21c8b2
+47	953	7968887282552177	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	7f69df3e91a3d842
 20	992	7968887282934037	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	5eba860f9414dc4f
+53	1141	7968887284483919	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	48261d5de12e9447
 40	999	7968887283044339	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	126ff8d9870d0c5e
 11	1027	7968887283320255	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	40263dbabc4f87d5
-53	1141	7968887284483919	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	48261d5de12e9447
 32	1205	7968887285125857	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	cf58362c23d7e970
 4	1283	7968887285841164	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	f00d92f9862ff498
-1283	1413	7968887287214208	C:/Users/alexh/Desktop/WebGameProgrammingProject/Jester's Midway/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/571g3j5t/obj/arm64-v8a/libgame.so	c309e6000f21c8b2
+13	1386	7986939196049499	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	8d4632252a8b783b
+40	1417	7986939196250714	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	7f69df3e91a3d842
+25	1462	7986939196694431	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	5eba860f9414dc4f
+32	1525	7986939197374622	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	126ff8d9870d0c5e
+7	1574	7986939197937567	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	40263dbabc4f87d5
+56	1715	7986939199360147	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	48261d5de12e9447
+48	1822	7986939200456207	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	cf58362c23d7e970
+19	1966	7986939201837892	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	f00d92f9862ff498
+1967	2113	7986939203317744	C:/Users/alexh/Desktop/WebGameProgrammingProject/Jester's Midway/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/571g3j5t/obj/arm64-v8a/libgame.so	c309e6000f21c8b2

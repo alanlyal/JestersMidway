@@ -469,14 +469,14 @@ PrefabInstance:
     - target: {fileID: 114204224268582166, guid: 05f32eddd3e41fd4597ada617b785928, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1326357056}
+      objectReference: {fileID: 1326357054}
     - target: {fileID: 114204224268582166, guid: 05f32eddd3e41fd4597ada617b785928, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Pause
+      value: OpenPauseMenu
       objectReference: {fileID: 0}
     - target: {fileID: 114204224268582166, guid: 05f32eddd3e41fd4597ada617b785928, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PauseGame, Assembly-CSharp
+      value: PauseMenu, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 114204224268582166, guid: 05f32eddd3e41fd4597ada617b785928, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -7215,7 +7215,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1326357055}
   - component: {fileID: 1326357054}
-  - component: {fileID: 1326357056}
+  - component: {fileID: 1326357057}
   m_Layer: 0
   m_Name: Menu Manager
   m_TagString: Untagged
@@ -7252,7 +7252,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1326357056
+--- !u!114 &1326357057
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7261,10 +7261,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1326357053}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc9b28c5e6f3490478c2340acd7f45cc, type: 3}
+  m_Script: {fileID: 11500000, guid: ee3d011c284c19544be4b89a0d56dee2, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PauseGame
+  m_EditorClassIdentifier: Assembly-CSharp::PauseMenu
   pauseCanvas: {fileID: 738051489}
+  settingsPanel: {fileID: 623136704}
 --- !u!4 &1337019969 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 61f8eee726bbf0342a48556415266f49, type: 3}
